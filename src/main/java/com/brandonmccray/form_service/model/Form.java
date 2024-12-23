@@ -16,7 +16,8 @@ public class Form {
     private Long id;
     private String title;
     private String description;
+    private Boolean isActive;
 
     @ElementCollection
-    private List<String> fields;
+    private List<FormField> fields;
 }
