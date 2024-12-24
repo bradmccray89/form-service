@@ -1,5 +1,7 @@
 package com.brandonmccray.form_service.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,11 +22,11 @@ public class FormField {
   private Long id;
   private String name;
   private String description;
-  private Form formId;
   private String label;
   private String inputType;
 
   @ManyToOne
   @JoinColumn(name = "form_id")
+  @JsonBackReference
   private Form form;
 }

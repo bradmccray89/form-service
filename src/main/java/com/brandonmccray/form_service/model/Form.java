@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -14,12 +16,12 @@ import java.util.List;
 public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "form_id")
     private Long id;
     private String title;
     private String description;
     private Boolean isActive;
 
     @OneToMany(mappedBy = "form")
-    private List<FormField> fields;
+    @JsonManagedReference
+    private List<FormField> formFields;
 }

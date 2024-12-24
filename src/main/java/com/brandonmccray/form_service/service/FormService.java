@@ -31,7 +31,7 @@ public class FormService {
     Form form = getFormById(id);
     form.setTitle(formDetails.getTitle());
     form.setDescription(formDetails.getDescription());
-    form.setFields(formDetails.getFields());
+    form.setFormFields(formDetails.getFormFields());
     return formRepository.save(form);
   }
 
