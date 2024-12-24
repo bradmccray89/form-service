@@ -1,11 +1,11 @@
 package com.brandonmccray.form_service.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -23,5 +23,8 @@ public class FormField {
   private Form formId;
   private String label;
   private String inputType;
-  private List<FieldOptions> fieldOptions;
+
+  @ManyToOne
+  @JoinColumn(name = "form_id")
+  private Form form;
 }

@@ -10,14 +10,16 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "form")
 public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "form_id")
     private Long id;
     private String title;
     private String description;
     private Boolean isActive;
 
-    @ElementCollection
+    @OneToMany(mappedBy = "form")
     private List<FormField> fields;
 }
