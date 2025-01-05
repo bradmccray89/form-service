@@ -27,6 +27,9 @@ public class FormService {
   // save form and form fields
   public Form createForm(Form form) {
     System.out.println("CREATE FORM: " + form);
+    if (form.getFormFields() != null) {
+      form.getFormFields().forEach(formField -> formField.setForm(form));
+    }
     return formRepository.save(form);
   }
 
