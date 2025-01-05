@@ -1,6 +1,7 @@
 package com.brandonmccray.form_service.service;
 
 import com.brandonmccray.form_service.model.Form;
+import com.brandonmccray.form_service.model.FormField;
 import com.brandonmccray.form_service.repository.FormRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,9 @@ public class FormService {
         .orElseThrow(() -> new RuntimeException("Form Not Found!"));
   }
   
+  // save form and form fields
   public Form createForm(Form form) {
+    System.out.println("CREATE FORM: " + form);
     return formRepository.save(form);
   }
 

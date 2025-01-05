@@ -1,5 +1,6 @@
 package com.brandonmccray.form_service.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Form {
     private String description;
     private Boolean isActive;
 
-    @OneToMany(mappedBy = "form")
+    @OneToMany(mappedBy = "form", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<FormField> formFields;
 }

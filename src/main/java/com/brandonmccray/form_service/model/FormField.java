@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FormField {
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
   private String description;
@@ -26,7 +26,7 @@ public class FormField {
   private String inputType;
 
   @ManyToOne
-  @JoinColumn(name = "form_id")
+  @JoinColumn(name = "form_id", nullable = false)
   @JsonBackReference
   private Form form;
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import com.brandonmccray.form_service.model.Role;
 import com.brandonmccray.form_service.model.User;
 import com.brandonmccray.form_service.repository.UserRepository;
-import com.brandonmccray.form_service.service.RoleService;
 
 @Service
 public class UserService {
