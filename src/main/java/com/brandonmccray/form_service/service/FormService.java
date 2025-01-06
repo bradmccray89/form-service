@@ -34,10 +34,22 @@ public class FormService {
   }
 
   public Form updateForm(Long id, Form formDetails) {
+    System.out.println("UPDATE FORM: " + id);
     Form form = getFormById(id);
     form.setTitle(formDetails.getTitle());
     form.setDescription(formDetails.getDescription());
-    form.setFormFields(formDetails.getFormFields());
+    form.setIsActive(formDetails.getIsActive());
+
+    List<FormField> updatedFormFields = formDetails.getFormFields();
+    if (updatedFormFields != null) {
+      form.getFormFields().clear();
+
+      for (FormField formField : updatedFormFields) {
+        formField.setForm(form);
+        form.getFormFields().add(formField);
+      }
+    }
+
     return formRepository.save(form);
   }
 
